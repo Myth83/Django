@@ -3,6 +3,15 @@
 {% block content %}
     <form class="form-horizontal" action='{% url "auth:login" %}' method="POST">
         {% csrf_token %}
+        {% if next  %}
+            {% if next == "/basket/" %}
+                <input class="form-control" name="next" type="hidden" value="{{ next }}">
+                {% else %}
+                <input class="form-control" name="next" type="hidden" value="/products/">
+            {% endif %}
+
+
+        {% endif %}
         <input class="form-control" name="username" placeholder="Имя пользователя"><br>
         <input class="form-control" name="password" type="password" placeholder="Пароль"><br>
         <input class="form-control" type="submit" value="Войти">

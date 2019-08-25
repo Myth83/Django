@@ -8,6 +8,7 @@ class BasketSlot(models.Model):
         verbose_name = "Слот корзины"
         verbose_name_plural = "Слоты корзины"
     user = models.ForeignKey(ShopUser, verbose_name="пользователь", on_delete=models.CASCADE, related_name='basket')
+    # related_name = 'basket' --> добляет возможность вызывать через "basket" корзину юзера, например request.user.basket.all()
     product = models.ForeignKey(Product, verbose_name="товар", on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(verbose_name="количество", default=1)
     created = models.DateTimeField(verbose_name='дата создания', auto_now_add=True)
@@ -15,5 +16,7 @@ class BasketSlot(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.product.name}"
 
-    def cost(self):
+    def get_cost(self):
         return self.quantity * self.product.price
+
+    cost = property(get_cost)
