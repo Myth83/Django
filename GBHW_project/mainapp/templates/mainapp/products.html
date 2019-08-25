@@ -1,0 +1,17 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+    <title>Products</title>
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">Продукты</h1>
+
+    {% for product in products %}
+        <div class="products"> {{ product|title}}</div>
+        <h3>Категория: {{ product.category }}</h3>
+        <h4>Цена: {{ product.price }}</h4>
+    {% endfor %}
+
+
+{% endblock %}

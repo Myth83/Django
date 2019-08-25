@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% block title %}
+        {% endblock %}
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        {% block css %}
+        {% endblock %}
+    </head>
+
+    <body>
+        {% include "mainapp/includes/incl_menu.html" %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% block js %}
+        {% endblock %}
+
+        {% now "M Y" %}
+    </body>
+</html>

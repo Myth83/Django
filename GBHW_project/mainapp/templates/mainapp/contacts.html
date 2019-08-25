@@ -1,0 +1,13 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+    <title>Contacts</title>
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">Контакты</h1>
+        {% for contact in contacts %}
+         <div class="contact"> {{ contact}}</div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+body{
+    background: whitesmoke;
+}
+
+.title{
+    font-size: 45px;
+    color: red;
+}
+
+.userHello{
+    font-size: 32px;
+    color: blue;
+    margin: 20px 20px 20px 20px;
+}
+
+.products{
+    font-size: 22px;
+    color: black;
+    margin: 20px 20px 20px 20px;
+}
+
+.contact{
+        font-size: 22px;
+        color: black;
+        margin: 20px 20px 20px 20px;
+}
+
+.loginRegister{
+         font-size: 10px;
+}
