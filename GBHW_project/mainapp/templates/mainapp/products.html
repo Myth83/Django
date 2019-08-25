@@ -6,12 +6,30 @@
 
 {% block content %}
     <h1 class="title">Продукты</h1>
+    <h3>В корзине: {{ basket|length }} продуктов (типов)</h3>
+{#    <h3>Стоимость всех продуктов: {{ basket.cost }} </h3>#}
+    {% include 'mainapp/includes/incl_caterory_menu.html' %}
 
-    {% for product in products %}
-        <div class="products"> {{ product|title}}</div>
-        <h3>Категория: {{ product.category }}</h3>
-        <h4>Цена: {{ product.price }}</h4>
-    {% endfor %}
+    <div class="productsWrap">
+        {% for product in products %}
+
+                <div class="products">
+                    <h3 class="productsTitle"> {{ product.name|title}}</h3>
+                    <h4 class="productsCategory">Категория: {{ product.category }}</h4>
+                    <h4 class="productsPice">Цена: {{ product.price }}</h4>
+                    {% if product.image %}
+                        <img class="productsImg" src="{{ MEDIA_URL }}{{ product.image.url }}" alt="img">
+                        {% else %}
+                            <div class="productsImgCap">нет фото</div>
+
+                    {% endif %}
+                    <a href="{% url 'basket:add' product.pk %}">Добавить в корзину</a>
+                    <a href="{% url 'basket:remove' product.pk %}">Удалить из корзины</a>
+
+                </div>
+        {% endfor %}
+    </div>
+
 
 
 {% endblock %}
