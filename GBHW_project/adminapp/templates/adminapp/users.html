@@ -1,0 +1,22 @@
+{% extends "adminapp/base.html" %}
+
+
+{% block title %}
+    <title>User</title>
+{% endblock %}
+
+{% block content %}
+{#    <h2>Filter by Categories</h2>#}
+{#    {% include 'adminapp/includes/inc_category_menu.html' %}#}
+    <h2>Users:</h2>
+    <ul>
+        {% for object in object_list %}
+            <li>
+                <a href="{% url 'admin_custom:user_by_id' object.pk %}">{{ object.username}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'admin_custom:user_create' %}">Create new User</a>
+
+{% endblock %}

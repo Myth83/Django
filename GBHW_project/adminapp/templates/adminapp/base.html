@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block title %}
+        <title>{{ title }}</title>
+    {% endblock %}
+
+</head>
+
+<body>
+    <h3>Админка</h3>
+    Работа с представлениями:<br>
+    <a href={% url "admin_custom:products" %}>Products</a>
+    <a href={% url "admin_custom:categories" %}>Categories</a>
+    <a href={% url "admin_custom:users" %}>Users</a>
+
+<hr>
+{% block content %}
+
+{% endblock %}
+
+
+</body>
+</html>

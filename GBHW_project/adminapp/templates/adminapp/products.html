@@ -1,0 +1,22 @@
+{% extends "adminapp/base.html" %}
+
+
+{% block title %}
+    <title>Products</title>
+{% endblock %}
+
+{% block content %}
+    <h2>Filter by Categories</h2>
+    {% include 'adminapp/includes/inc_category_menu.html' %}
+    <h2>Products</h2>
+    <ul>
+    {% for object in object_list %}
+        <li>
+            <a href="{% url 'admin_custom:product_read' object.pk %}">{{ object.name }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <a href="{% url 'admin_custom:product_create' %}">Create new product</a>
+
+{% endblock %}

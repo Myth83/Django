@@ -1,0 +1,14 @@
+{% extends "adminapp/base.html" %}
+
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+
+{% block content %}
+    <form class="form-horizontal" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{{ button_lable }}">
+    </form>
+{% endblock %}

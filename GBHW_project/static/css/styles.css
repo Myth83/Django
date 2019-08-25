@@ -28,7 +28,6 @@ body{
     outline-color: black;
     outline-style: dotted;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, auto) ;
 }
 
 .productsImg{
@@ -57,4 +56,20 @@ body{
 
 .loginRegister{
          font-size: 10px;
+}
+
+.basket_list{
+    margin: 20px 0 20px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+}
+
+.basket_record{
+    margin: 20px 0 20px 0;
+    display: grid;
+    grid-gap: 20px;
+    outline-style: groove;
+
 }

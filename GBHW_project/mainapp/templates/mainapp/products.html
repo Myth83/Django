@@ -1,4 +1,5 @@
 {% extends "mainapp/base.html" %}
+{% load custom_tags %}
 
 {% block title %}
     <title>Products</title>
@@ -6,8 +7,8 @@
 
 {% block content %}
     <h1 class="title">Продукты</h1>
-    <h3>В корзине: {{ basket|length }} продуктов (типов)</h3>
-{#    <h3>Стоимость всех продуктов: {{ basket.cost }} </h3>#}
+    <h3>В корзине: {{ basket|basket_total_quantity }} продуктов (типов)</h3>
+    <h3>Стоимость всех продуктов: {{ basket|basket_total_cost }} </h3>
     {% include 'mainapp/includes/incl_caterory_menu.html' %}
 
     <div class="productsWrap">
@@ -29,7 +30,4 @@
                 </div>
         {% endfor %}
     </div>
-
-
-
 {% endblock %}

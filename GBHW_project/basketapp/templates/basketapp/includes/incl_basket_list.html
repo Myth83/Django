@@ -1,0 +1,19 @@
+{% load static %}
+
+{% for item in basket_items %}
+    <div class="basket_record">
+        <span class="category_name">Категория: {{ item.product.category.name }}</span>
+        <span class="product_name">Название: {{ item.product.name }}</span>
+        <span class="product_price">Цена: {{ item.product.price }}&nbspруб</span>
+        <input type="number" min="0"
+               name="{{ item.pk }}"
+               value="{{ item.quantity }}"
+        >
+        <span class="product_cost">Итого стоимость: {{ item.cost }}&nbspруб</span>
+        <button class="btn btn-round">
+            <a href="{% url 'basket:remove' item.pk %}" class="">
+                удалить
+            </a>
+        </button>
+    </div>
+{% endfor %}

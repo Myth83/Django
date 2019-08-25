@@ -1,0 +1,24 @@
+{% extends "adminapp/base.html" %}
+
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Name: {{ object.username }}</h1>
+
+    <p>Passowrd:{{ object.password }}</p>
+    <p>Age:{{ object.age }}</p>
+    <p>E-mail:{{ object.email }}</p>
+
+
+
+    <a href="{% url 'admin_custom:user_update' object.pk %}">Update</a>
+    <br>
+    <a href="{% url 'admin_custom:user_delete' object.pk %}">Delete</a>
+    <br>
+    <br>
+    <a href="{% url 'admin_custom:users' %}"> <-- Go to all</a>
+
+{% endblock %}
