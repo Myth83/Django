@@ -13,11 +13,41 @@ body{
     margin: 20px 20px 20px 20px;
 }
 
-.products{
-    font-size: 22px;
-    color: black;
-    margin: 20px 20px 20px 20px;
+.productsWrap{
+    margin: 20px 0 20px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    text-align: center;
+
 }
+
+.products {
+    display: grid;
+    outline-color: black;
+    outline-style: dotted;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto) ;
+}
+
+.productsImg{
+    justify-self: center;
+}
+
+.productsImgCap{
+    width: 250px;
+    height: 230px;
+    background: white;
+    justify-self: center;
+
+
+}
+
+.categoriesMenu{
+    margin: 10px 10px 10px 10px;
+}
+
 
 .contact{
         font-size: 22px;

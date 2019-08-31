@@ -1,13 +1,26 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Product, ProductCategory
 
 
 def main(request):
     return render(request, 'mainapp/main.html')
 
 
-def products(request):
-    context = {'products': Product.objects.all()}
+def products(request, pk=None):
+    product_list = Product.objects.all()
+    if pk:
+        product_list = product_list.filter(category__pk=pk)
+
+    if request.user.is_authenticated:
+        context = {'products': product_list,
+                   'categories': ProductCategory.objects.all(),
+                   'basket': request.user.basket.all()
+                   }
+    else:
+        context = {'products': product_list,
+                   'categories': ProductCategory.objects.all(),
+                   }
+
     return render(request, 'mainapp/products.html', context=context)
 
 
