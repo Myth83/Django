@@ -1,13 +1,8 @@
 <a href={% url "main" %}>Main</a>
 <a href={% url "products:index" %}>Products</a>
 <a href={% url "contacts" %}>Contacts</a>
+{% if user %}
+    <a href={% url "basket:read" %}>Basket</a>
+{% endif %}
 
 
-
-{#<li>#}
-{#    {% if user.is_authenticated %}#}
-{#      <a href="{% url 'auth:logout' %}">выйти</a>#}
-{#    {% else %}#}
-{#      <a href="{% url 'auth:login' %}">войти</a>#}
-{#    {% endif %}#}
-{#</li>#}

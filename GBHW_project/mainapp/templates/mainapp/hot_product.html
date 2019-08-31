@@ -1,0 +1,33 @@
+{% extends 'mainapp/base.html' %}
+{% load custom_tags %}
+
+{% block title %}
+    <title>Продукты</title>
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">Продукты</h1>
+    <h3>В корзине: {{ basket|basket_total_quantity }} продуктов (типов)</h3>
+    <h3>Стоимость всех продуктов: {{ basket|basket_total_cost }} </h3>
+    {% include 'mainapp/includes/incl_caterory_menu.html' %}
+
+    <div class="productsWrap">
+            <div class="products">
+                <h2>Горячее предложение!!! <br>Спешите, кол-во товаров ограничено!</h2>
+                <h3 class="productsTitle"> {{ hot_product.name|title}}</h3>
+                <h4 class="productsCategory">Категория: {{ hot_product.category }}</h4>
+                <h4 class="productsPice">Цена: {{ hot_product.price }}</h4>
+                {% if hot_product.image %}
+                    <img class="productsImg" src="{{ MEDIA_URL }}{{ hot_product.image.url }}" alt="img">
+                    {% else %}
+                        <div class="productsImgCap">нет фото</div>
+
+                {% endif %}
+                <a href="{% url 'basket:add' hot_product.pk %}">Добавить в корзину</a>
+                <a href="{% url 'basket:remove' hot_product.pk %}">Удалить из корзины</a>
+            </div>
+
+    </div>
+{% endblock %}
+
+
