@@ -8,6 +8,7 @@ from mainapp.models import Product, ProductCategory
 from authapp.models import ShopUser
 
 
+
 class IsSuperUserView(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_superuser
@@ -170,6 +171,7 @@ class UserDetailView(IsSuperUserView, DetailView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(UserDetailView, self).get_context_data( **kwargs)
+        print(context)
         return context
 
 

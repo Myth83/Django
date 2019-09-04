@@ -3,6 +3,7 @@ from mainapp.models import ProductCategory, Product
 from authapp.models import ShopUser
 
 import json, os
+from GBHW_project import settings
 
 JSON_PATH = 'mainapp\json'
 
@@ -35,4 +36,4 @@ class Command(BaseCommand):
 
         # Создаем суперпользователя при помощи менеджера модели
         ShopUser.objects.all().delete()
-        ShopUser.objects.create_superuser('admin', 'admin@geekshop.local', 'admin', age="19")
+        ShopUser.objects.create_superuser(settings.config.get('admin', ['admin_name', 'admin_mail', 'admin_password']), age="19")
